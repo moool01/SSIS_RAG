@@ -25,29 +25,24 @@
 
     231107 12:47
         indent, 의존관계 등 수정했음(langchain만)
-====================================
 
     231108 02:24
         OpenAI API update로 Langchain dependency 오류 발생해서 RAG baseline 완성했지만 검증은 못해봄(오류 가능성)
-====================================
 
     231108 03:48
         1. document.py 생성으로 이전에 langchain document list 생성과 corpus.py로 uuid 부여한 corpus 생성 통합해서 object로 생성 완료(document.py)
         2. 해당 사항 이용하는 부분들 통합해서 코드 수정 완료
-====================================
 
     231108 08:23
         1. qa_generation 완성 -> OpenAI api 업데이트로 langchain과 호환 issue 있어
         추후에 prompt + pydantic 할거면 수정해야 함
         2. main 파일에 dataset 생성 Example Usage 등록
-====================================
 
     231108 13:21
         1.document.py에 RegExLoader Class 추가(원문에서 정규식으로 .md file의 table 텍스트 부분)
         2.클래스 쓰는 의미 (self..) 넣었다.
         3.CorpusDBLoader에 with_regex(정규식 사용해서 원문 전처리 할건지) 여부 추가했음.
-====================================
-
+        
     231109 08:38
         1.document Class BaseDBLoader로 통합하고 flag를 통해서 정규식, split 해결하도록 함 
             -> loader 메서드에 넣음
