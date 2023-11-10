@@ -48,20 +48,23 @@
             -> loader 메서드에 넣음
             (special thanks to khakha👍)
         2.main에 사용예시 변경
-====================================
 
     231109 21:10
         1.prompt.py 수정 
         2.임시로 OpenAI 써서 qa_generation.py 완성
         3.내일 평가받고 Dataset 만들기(현재 gpt-3.5-turbo-1106 이용중) -> token limit 16k 낭낭해서 좋음 *^^*
 
+====================================
+    231110 14:30
+        1. Analogical Prompting 이용해서 prompt.py 수정
+        2. 1번의 연장으로 qa_generation.py도 연동되도록 수정
+            -> 전체적으로 Prompt Analogical한 방식으로 손질하고 프로세스에 연동되도록 했다.
+
 ----> 할 것
 
 1. HyDE Embedding 붙여서 RAG 구현해놓기
 
-2. ORPO, Analogical Prompting
-
-3. embedding 불러오는 부분도 object화 해서 구현해놓기
+2. embedding 불러오는 부분도 object화 해서 구현해놓기
 
 ----> 장기적으로..
 

@@ -6,6 +6,7 @@ langchain/BM-K
 langchain/chroma
 
 ## test file
+langchain/test.ipynb
 langchain/langchaintest.ipynb
 langchain/result.json
 
