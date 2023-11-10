@@ -55,6 +55,7 @@
         3.내일 평가받고 Dataset 만들기(현재 gpt-3.5-turbo-1106 이용중) -> token limit 16k 낭낭해서 좋음 *^^*
 
 ====================================
+
     231110 14:30
         1. Analogical Prompting 이용해서 prompt.py 수정
         2. 1번의 연장으로 qa_generation.py도 연동되도록 수정
