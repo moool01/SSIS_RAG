@@ -1,7 +1,7 @@
 import os
 from document import BaseDBLoader
 
-from langchain.vectorstores import Chroma
+from langchain.vectorstores.chroma import Chroma
 from langchain.embeddings.sentence_transformer import SentenceTransformerEmbeddings
 
 """ set up vector DB in local path. (./chroma) """

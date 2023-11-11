@@ -1,12 +1,13 @@
 import os
 
-from langchain.vectorstores import Chroma
+from langchain.vectorstores.chroma import Chroma
 from langchain.embeddings import SentenceTransformerEmbeddings
 
 #api key(추가해서 쓰시오)
 import settings
 
-from langchain.llms import OpenAI, GooglePalm
+from langchain.llms.openai import OpenAI
+from langchain.llms.google_palm import GooglePalm
 from langchain.chains import RetrievalQA
 
 """ HyDE 붙이기 + """
