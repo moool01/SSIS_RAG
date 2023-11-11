@@ -10,6 +10,11 @@ langchain/test.ipynb
 langchain/langchaintest.ipynb
 langchain/result.json
 
+langchain/util.py
+langchain/batch
+langchain/batch_complete
+langchain/resultQA
+
 ### pycache
 langchain/__pycache__
 llamaindex/__pycache__
