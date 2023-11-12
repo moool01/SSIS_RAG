@@ -58,17 +58,19 @@
         1. Analogical Prompting 이용해서 prompt.py 수정
         2. 1번의 연장으로 qa_generation.py도 연동되도록 수정
             -> 전체적으로 Prompt Analogical한 방식으로 손질하고 프로세스에 연동되도록 했다.
+    
+    231112 08:15
+    langchain 수정한 부분
+        1. langchain\output_parsers\retry.py
+        -> parse_with_ prompt 부분에서 prompt_value 부분에 to_string() 빼서 string 입력 가능하게 함(오류 수정 확인)
+        2. langchain\output_parsers\pydantic.py
+        -> get_format_instructions json dump부분 수정
 
 ====================================
 
-231112 08:15
-    langchain 수정한 부분
-        1. langchain\output_parsers\retry.py
-        -> parse_with_ prompt 부분에서 prompt_value 부분에 to_string() 빼서 string 입력 가능하게 함 (오류 수정 확인)
-        2. langchain\
-        -> json dump부분 수정
-
-        Dataset 생성 완료 -> batch file 합치면 됨
+    231112 21:54
+        da_qa_dataset.json 생성 완료 -> 
+            10개 단위로 나눠놓은 47개 batch를 {query:질문, corpus:original 문서, relevant_docs:embedding model에 query 던졌을 때 가져오는 결과(문서 id)}로 구성하였다.
 
 ----> 할 것
 

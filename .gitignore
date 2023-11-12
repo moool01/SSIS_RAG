@@ -11,8 +11,6 @@ langchain/langchaintest.ipynb
 langchain/result.json
 
 langchain/util.py
-langchain/batch
-langchain/batch_complete
 langchain/resultQA
 
 ### pycache
