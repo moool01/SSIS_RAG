@@ -7,8 +7,6 @@ from langchain.output_parsers import PydanticOutputParser
 
 from typing import List
 
-from langchain.output_parsers import StructuredOutputParser, ResponseSchema
-
 def _get_pydantic():
     """ pydantic 형태로 결과 parsing해서 돌려줌. -> output 구조 설정과 결과 parsing 2번 사용해야 함. """
     class analogical_thinking(BaseModel):

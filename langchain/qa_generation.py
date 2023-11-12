@@ -69,7 +69,7 @@ def generate_qa(context:dict, model:str="gpt-3.5-turbo-1106", num_questions_per_
         try : 
             parsed_output = pydanticoutput.parse(output)
         except OutputParserException : 
-            retry_parser = RetryWithErrorOutputParser.from_llm(parser=pydanticoutput, llm=ChatOpenAI(model=model, temperature=1))
+            retry_parser = RetryWithErrorOutputParser.from_llm(parser=pydanticoutput, llm=ChatOpenAI(model=model, temperature=1),max_retries=2)
             parsed_output = retry_parser.parse_with_prompt(output, prompt_value=query)
 
         print(f"""\n\n 논리에 따라 생성한 결과는 다음과 같습니다. 

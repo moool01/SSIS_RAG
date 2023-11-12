@@ -8,7 +8,7 @@ import json
 import time
 from datetime import datetime
 
-# ## corpus 생성까지
+####### 1. From raw Markdownfiles to corpus -> {uuid:text} dict
 # loader = BaseDBLoader()
 # document = loader.load(is_regex=True, is_split=False)
 # # print(document)
@@ -19,36 +19,48 @@ from datetime import datetime
 # # 464
 
 
-### Dataset generation main
-directory = os.path.dirname(__file__)
-os.chdir(directory)
+######## 2. Synthetic Dataset Generating from corpus
+# directory = os.path.dirname(__file__)
+# os.chdir(directory)
 
-##### 데이터셋 10개씩 batch 나눠서 진행하였음.
-folder_path = "./batch"
-folder_result = "./resultQA"
+# ### 데이터셋 10개씩 batch 나눠서 진행하였음.
+# folder_path = "./batch"
+# folder_result = "./resultQA"
 
-if not os.path.exists(folder_result) :
-    os.makedirs(folder_result)
+# if not os.path.exists(folder_result) :
+#     os.makedirs(folder_result)
 
-for number, filename in enumerate(os.listdir(folder_path), start=26):
-    #make result folder first
-    print("="*60)
-    print (f"dataset generate on batch_{number} start on : {datetime.now()}\n")
+# for number, filename in enumerate(os.listdir(folder_path), start=1):
+#     #make result folder first
+#     print("="*60)
+#     print (f"dataset generate on batch_{number} start on : {datetime.now()}\n")
 
-    if filename.endswith('.json'):
-        file_path = os.path.join(folder_path, filename)
+#     if filename.endswith('.json'):
+#         file_path = os.path.join(folder_path, filename)
+#         with open(file_path, 'r', encoding="utf-8") as file:
+#             data = json.load(file)
+#         with open(f"./resultQA/batch_{number}_result.json", 'w+', encoding="utf-8") as result_file:
+#             json.dump(generate_qa(data, num_questions_per_chunk=25), result_file, indent="\t", ensure_ascii=False)
+#     time.sleep(3)
 
-        with open(file_path, 'r', encoding="utf-8") as file:
-            data = json.load(file)
-        with open(f"./resultQA/batch_{number}_result.json", 'w+', encoding="utf-8") as result_file:
-            json.dump(generate_qa(data, num_questions_per_chunk=25), result_file, indent="\t", ensure_ascii=False)
-    time.sleep(3)
-                
+### 생성된 Dataset 합치기 -> batch_1~47_result ..... -> qa_dataset.json
+# print(len(os.listdir(folder_result))) #47
+# merged_batch_dataset = {
+#     'queries':{},
+#     'corpus':{},
+#     'relevant_docs':{},
+# }
 
-# with open('./langchain/result.json','r', encoding='utf-8') as file :  
-#     loader = json.load(file)
+# for file in sorted(os.listdir(folder_result)):
+#     with open(os.path.join(folder_result, file), "r", encoding='utf-8') as batch_file :
+#         batch_dict = json.load(batch_file)
 
-# with open("qa_dataset.json", "w+", encoding="utf-8") as file:
-#     json.dump(generate_qa(loader, num_questions_per_chunk=20), file, indent='\t', ensure_ascii=False)
+#         for key in batch_dict.keys() :
+#             merged_batch_dataset[key].update(batch_dict[key])
+
+# with open('./da_qa_dataset.json', 'w+',encoding='utf-8') as qa_dataset :
+#     json.dump(merged_batch_dataset, da_qa_dataset, indent='\t', ensure_ascii=False)
+
+
     
 
