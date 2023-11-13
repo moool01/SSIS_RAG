@@ -2,20 +2,18 @@
 llamaindex/settings.py
 langchain/settings.py
 
-langchain/BM-K
+# chroma db
 langchain/chroma
 
-## test file
-langchain/test.ipynb
-langchain/langchaintest.ipynb
-langchain/result.json
+### dataset
+langchain/da_dataset
 
-langchain/util.py
-langchain/resultQA
+# model 
+langchain/BM-K
+langchain/da_finetune_epoch_2
+langchain/da_finetune_epoch_25
 
 ### pycache
 langchain/__pycache__
 llamaindex/__pycache__
 
-#### util
-embedding.py
