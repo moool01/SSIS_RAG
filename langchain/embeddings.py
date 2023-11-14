@@ -48,7 +48,7 @@ class EmbeddingDownLoader:
 
 #         return device
 
-#test
+## test
 # if __name__ == "__main__":
 #     loader = EmbeddingDownLoader(model="BM-K/KoSimCSE-roberta-multitask")
 #     loader.download()

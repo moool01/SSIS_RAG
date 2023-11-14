@@ -20,7 +20,7 @@ def _device_check() :
 
 #embedding config
 embedding = SentenceTransformerEmbeddings(
-    model_name="da_finetune_epoch_2", 
+    model_name="BM-K/KoSimCSE-roberta-multitask", 
     model_kwargs={'device':_device_check()}, 
     encode_kwargs={'normalize_embeddings':True},
     )

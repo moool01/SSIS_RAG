@@ -3,6 +3,8 @@ import os
 from langchain.prompts.pipeline import PipelinePromptTemplate
 from langchain.prompts import PromptTemplate
 
+from langchain.chains import RetrievalQA
+
 from settings import openai_api_key
 from openai import OpenAI
 
@@ -49,23 +51,16 @@ input_prompts = [
 prompt = PromptTemplate.from_template(prompt_template)
 prompt_pipeline = PipelinePromptTemplate(final_prompt=prompt, pipeline_prompts=input_prompts)
 
-final = prompt_pipeline.format(
-    context=[c1, c2, c3],
+def lcel_prompt(retriever):
+    final = prompt_pipeline.format(
+    context=retriever,
     query='가사, 간병과 관련하여 도움이 필요한데 어떤 도움을 받을 수 있나요? 조건도 알려주세요.'
     )
+    
+# response = llm.create(
+#     model = "gpt-3.5-turbo-1106",
+#     temperature=0
+#     messages=[{"role":"system","content":final}],
+#     )
 
-# llm = OpenAI(model = "gpt-3.5-turbo-1106", temperature=1).chat.completions
-
-# chain = RetrievalQA.from_chain_type(
-#                     llm=llm,
-#                     chain_type="stuff",
-#                     retriever=vectorstore.as_retriever(search_type='mmr'),
-#                 )
-
-response = llm.create(
-    model = "gpt-3.5-turbo-1106",
-    temperature=0
-    messages=[{"role":"system","content":final}],
-    )
-
-response
+# response
