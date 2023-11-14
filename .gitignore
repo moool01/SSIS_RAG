@@ -3,7 +3,10 @@ llamaindex/settings.py
 langchain/settings.py
 
 # chroma db
-langchain/chroma
+langchain/chroma_storage
+
+# test
+langchain/chroma.ipynb
 
 ### dataset
 langchain/da_dataset
