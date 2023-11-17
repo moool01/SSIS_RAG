@@ -1,6 +1,7 @@
 import streamlit as st
 import time
 from PIL import Image
+import pickle
 
 # from chromaClient import ChromaClient
 from chromaVectorStore import ChromaVectorStore
@@ -69,13 +70,14 @@ if query_text or btn_flag:
         st.markdown("<h2 style='text-align: center; color: white;'>검색 결과</h2>", unsafe_allow_html=True)
 
     with con5:
-        st.write("답변")
+        st.write("<<< 답변 >>>")
         st.markdown(results_rag)
+        with open("for_test/answers.pickle", "wb") as fw:
+            pickle.dump(results_vs, fw)
 
     with con6:
         st.write("<<< 관련 문서 >>>")
-        st.markdown(RAGPipeline.format_docs(results_vs))
-        # sp_str = "\n"+'*'*50+"\n"
-        # st.write(sp_str.join(doc.page_content for doc in results_vs))
-        # print(results_vs)
+        # st.markdown(RAGPipeline.format_docs(results_vs))
+        with open("for_test/results_docs.pickle", "wb") as fw:
+            pickle.dump(results_vs, fw)
 
